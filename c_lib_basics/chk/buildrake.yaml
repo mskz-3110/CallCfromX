@@ -11,6 +11,8 @@ anchors:
     <<: *configuration
     c_flags: -g -Wall -fembed-bitcode
     cxx_flags: -g -Wall -fembed-bitcode
+    link_dirs: ../lib/${BUILDRAKE_PLATFORM}/${BUILDRAKE_BUILD_KEY}
+    link_libs: libbasics.a
   android_configuration: &android_configuration
     <<: *configuration
     c_flags: -g -Wall
@@ -82,7 +84,7 @@ anchors:
   build_exe: &build_exe
     type: exe
     inc_dirs:
-      - ./inc
+      - ../inc
   build_lib: &build_lib
     type: lib
     inc_dirs:
@@ -90,9 +92,9 @@ anchors:
 buildrake:
   cmake_version: 2.8
   builds:
-    - <<: *build_lib
-      name: basics
+    - <<: *build_exe
+      name: check_basics
       srcs:
-        - ./src/basics.c
+        - ./src/check_basics.c
       platforms:
         <<: *platforms
