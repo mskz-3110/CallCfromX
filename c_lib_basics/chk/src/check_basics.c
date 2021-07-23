@@ -1,6 +1,8 @@
 #include <basics.h>
 
 int main(){
+  if ( ! basics_init() ) exit( 1 );
+  
   basics_int8_print( basics_int8_add( basics_int8_min(), 0 ), basics_int8_min() );
   basics_int8_print( basics_int8_add( basics_int8_max(), 0 ), basics_int8_max() );
   
@@ -36,6 +38,8 @@ int main(){
     basics_string_print( basics_string_add( string, "abcde", "あいうえお" ), "abcdeあいうえお" );
     basics_string_delete( string );
   }
+  
+  basics_exit();
   
   return 0;
 }

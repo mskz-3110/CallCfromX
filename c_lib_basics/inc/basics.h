@@ -10,6 +10,7 @@
 #include <float.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef int8_t             int8;
 typedef uint8_t            uint8;
@@ -29,6 +30,8 @@ typedef struct {
 #ifdef __cplusplus
 extern "C" {
 #endif
+  bool basics_init();
+  void basics_exit();
   int8 basics_int8_add( int8 value1, int8 value2 );
   void basics_int8_print( int8 target_value, int8 correct_value );
   int8 basics_int8_min();

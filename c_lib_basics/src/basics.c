@@ -3,6 +3,14 @@
 
 static string s_empty_string = "";
 
+bool basics_init(){
+  return true;
+}
+
+void basics_exit(){
+  fflush( stdout );
+}
+
 int8 basics_int8_add( int8 value1, int8 value2 ){
   return value1 + value2;
 }
