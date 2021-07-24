@@ -21,11 +21,12 @@ typedef uint32_t           uint32;
 typedef long long          int64;
 typedef unsigned long long uint64;
 typedef const char*        string;
+typedef const char*        String;
 
 typedef struct {
-  uint8* string;
+  uint8* bytes;
   int32  allocated_size;
-} String;
+} BasicsString;
 
 #ifdef __cplusplus
 extern "C" {
@@ -66,9 +67,9 @@ extern "C" {
   double basics_double_add( double value1, double value2 );
   void basics_double_print( double target_value, double correct_value );
   double basics_double_max();
-  String* basics_string_new();
-  void basics_string_delete( String* string );
-  string basics_string_add( String* _string, string value1, string value2 );
+  BasicsString* basics_string_new();
+  void basics_string_delete( BasicsString* string );
+  string basics_string_add( BasicsString* string, String value1, String value2 );
   void basics_string_print( string target_value, string correct_value );
 #ifdef __cplusplus
 }

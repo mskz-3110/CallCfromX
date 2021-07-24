@@ -187,12 +187,12 @@ double basics_double_max(){
   return DBL_MAX;
 }
 
-String* basics_string_new(){
-  String* string = (String*)malloc( sizeof( String ) );
+BasicsString* basics_string_new(){
+  BasicsString* string = (BasicsString*)malloc( sizeof( BasicsString ) );
   do{
     if ( string == null ) break;
     
-    string->string = null;
+    string->bytes = null;
     string->allocated_size = 0;
     
     return string;
@@ -201,30 +201,30 @@ String* basics_string_new(){
   return null;
 }
 
-void basics_string_delete( String* string ){
+void basics_string_delete( BasicsString* string ){
   if ( string != null ){
-    if ( string->string != null ) free( string->string );
+    if ( string->bytes != null ) free( string->bytes );
     free( string );
   }
 }
 
-string basics_string_add( String* _string, string value1, string value2 ){
+string basics_string_add( BasicsString* string, String value1, String value2 ){
   int32 value1_length = strlen( value1 );
   int32 value2_length = strlen( value2 );
   int32 need_size = value1_length + value2_length + 1;
-  if ( _string->allocated_size < need_size ){
-    uint8* allocated_string = (uint8*)realloc( _string->string, need_size );
-    if ( allocated_string == null ) return s_empty_string;
+  if ( string->allocated_size < need_size ){
+    uint8* allocated_bytes = (uint8*)realloc( string->bytes, need_size );
+    if ( allocated_bytes == null ) return s_empty_string;
     
-    _string->string = allocated_string;
-    _string->allocated_size = need_size;
+    string->bytes = allocated_bytes;
+    string->allocated_size = need_size;
   }
   
-  memcpy( _string->string, value1, value1_length );
-  memcpy( &(_string->string[ value1_length ]), value2, value2_length );
-  _string->string[ need_size - 1 ] = '\0';
+  memcpy( string->bytes, value1, value1_length );
+  memcpy( &(string->bytes[ value1_length ]), value2, value2_length );
+  string->bytes[ need_size - 1 ] = '\0';
   
-  return (string)_string->string;
+  return (String)string->bytes;
 }
 
 void basics_string_print( string target_value, string correct_value ){
