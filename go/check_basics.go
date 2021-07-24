@@ -41,10 +41,10 @@ func main(){
   C.basics_double_print( C.basics_double_add( 0, 0 ), 0 )
   C.basics_double_print( C.basics_double_add( C.basics_double_max(), 0 ), C.basics_double_max() )
   
-  var string = C.basics_string_new()
-  if ( string != nil ){
-    C.basics_string_print( C.basics_string_add( string, C.CString("abcde"), C.CString("あいうえお") ), C.CString("abcdeあいうえお") )
-    C.basics_string_delete( string )
+  var basics_string = C.basics_string_new()
+  if ( basics_string != nil ){
+    C.basics_string_print( C.basics_string_add( basics_string, C.CString("abcde"), C.CString("あいうえお") ), C.CString("abcdeあいうえお") )
+    C.basics_string_delete( basics_string )
   }
   
   C.basics_exit()

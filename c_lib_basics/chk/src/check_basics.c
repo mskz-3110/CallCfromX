@@ -33,10 +33,10 @@ int main(){
   basics_double_print( basics_double_add( 0, 0 ), 0 );
   basics_double_print( basics_double_add( basics_double_max(), 0 ), basics_double_max() );
   
-  BasicsString* string = basics_string_new();
-  if ( string != null ){
-    basics_string_print( basics_string_add( string, "abcde", "あいうえお" ), "abcdeあいうえお" );
-    basics_string_delete( string );
+  BasicsString* basics_string = basics_string_new();
+  if ( basics_string != null ){
+    basics_string_print( basics_string_add( basics_string, "abcde", "あいうえお" ), "abcdeあいうえお" );
+    basics_string_delete( basics_string );
   }
   
   basics_exit();
