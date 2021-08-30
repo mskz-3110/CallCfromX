@@ -11,7 +11,7 @@ anchors:
     <<: *configuration
     c_flags: -g -Wall -fembed-bitcode
     cxx_flags: -g -Wall -fembed-bitcode
-    link_dirs: ../lib/${BUILDRAKE_PLATFORM}/${BUILDRAKE_BUILD_KEY}
+    link_dirs: ../lib/${BUILDRAKE_PLATFORM}/${BUILDRAKE_BUILD_ID}
     link_libs: libbasics.a
   android_configuration: &android_configuration
     <<: *configuration
